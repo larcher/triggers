@@ -117,6 +117,9 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'django_mongodb_engine',
+    'triggers.tracker',
+    'triggers.conditions',
+    'triggers.actions',
 )
 
 # A sample logging configuration. The only tangible logging
