@@ -20,8 +20,6 @@ class ObjectsAndValuesTest(TestCase):
     def setUp(self):
         thing1 = Thing(name="Thing1")
         thing1.save()
-        time.sleep(1/1000)
-
         thing1 = Thing.objects.get(name="Thing1")
 
         thing2 = Thing(name="Thing2")
@@ -30,31 +28,27 @@ class ObjectsAndValuesTest(TestCase):
         
         v = DataPoint(value={"state":"open"}, thing=thing1)
         v.save()
-        time.sleep(1/1000)
         v = DataPoint(value={"state":"closed"}, thing=thing1)
         v.save()
-        time.sleep(1/1000)
+
         v = DataPoint(value={"state":"frobbed"}, thing=thing1)
         v.save()
-        time.sleep(1/1000)
+
         v = DataPoint(value={"state":"closed"}, thing=thing1)
         v.save()
-        time.sleep(1/1000)
         v = DataPoint(value={"state":"frobbed"}, thing=thing1)
         v.save()
-        time.sleep(1/1000)
         v = DataPoint(value={"state":"closed"}, thing=thing1)
         v.save()
-        time.sleep(1/1000)
         v = DataPoint(value={"state":"frobbed"}, thing=thing1)
         v.save()
 
         v = DataPoint(value={"state":"blipped"}, thing=thing2)
         v.save()
-        time.sleep(1/1000)
+
         v = DataPoint(value={"state":"blipped"}, thing=thing2)
         v.save()
-        time.sleep(1/1000)
+
         v = DataPoint(value={"state":"blipped"}, thing=thing2)
         v.save()
 

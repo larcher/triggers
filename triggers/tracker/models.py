@@ -11,10 +11,13 @@ class Thing(models.Model):
 
     def get_latest_value(self):
         # find the most recent value for this object
-        return DataPoint.objects.filter(thing=self).order_by('datetime_stamp').reverse()[0]
+        # seems like the object ID may be good enough .. some of the time.  But
+        # TODO should change this to use a sequence number, implemented as counter document as described here:
+        # http://www.mongodb.org/display/DOCS/Object+IDs
+        return DataPoint.objects.filter(thing=self).order_by('_id').reverse()[0]
 
     def get_previous_change(self):
-        return DataPoint.objects.filter(thing=self).order_by('datetime_stamp').reverse()[1]
+        return DataPoint.objects.filter(thing=self).order_by('_id').reverse()[1]
 
 class DataPoint(models.Model):
     datetime_stamp = models.DateTimeField(auto_now_add=True, null=True)
